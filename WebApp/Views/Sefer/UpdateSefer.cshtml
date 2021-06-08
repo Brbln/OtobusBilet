@@ -1,0 +1,35 @@
+﻿@model Entities.Concrete.Sefer
+
+@{
+    ViewData["Title"] = "UpdateSefer";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<link href="~/lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+<h1>Sefer güncelleme sayfası</h1>
+<br />
+@using (Html.BeginForm("UpdateSefer", "Sefer", FormMethod.Post))
+{
+<div class="form-group">
+    @Html.Label("Sefer ID")
+    @Html.TextBoxFor(x => x.SeferId, new { @class = "form-control" })
+    <br /><br />
+
+    @Html.Label("Sefer Tarihi")
+    @Html.TextBoxFor(x => x.SeferTarihi, new { @class = "form-control" })
+    <br /><br />
+    @Html.Label("Kalkış Şehri")
+    @Html.TextBoxFor(x => x.KalkisSehir, new { @class = "form-control" })
+    <br /><br />
+    @Html.Label("Varış Şehri")
+    @Html.TextBoxFor(x => x.VarisSehir, new { @class = "form-control" })
+    <br /><br />
+    @Html.Label("Sefer Saati")
+    @Html.TextBoxFor(x => x.KalkisZamani, new { @class = "form-control" })
+    <br /><br />
+    @Html.Label("Sefer Ücreti")
+    @Html.TextBoxFor(x => x.SeferUcreti, new { @class = "form-control" })
+    <br /><br />
+
+    <button>Kaydet</button>
+</div>
+}

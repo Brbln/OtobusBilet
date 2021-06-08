@@ -1,0 +1,23 @@
+﻿@using Entities.Concrete
+@model List<Sehir>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<br />
+<table class="table table-bordered">
+    <tr>
+        <th>Sehir Adı</th>
+        <th>Sil</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.SehirAdi</td>
+            <td><a href="~/Sehir/DeleteSehir/@item.SehirId" class="btn btn-success">Sil</a></td>
+        </tr>
+    }
+</table>
+<a href="~/Sehir/AddSehir" class="btn btn-primary">Yeni Sehir</a>

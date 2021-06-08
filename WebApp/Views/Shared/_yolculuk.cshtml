@@ -1,0 +1,21 @@
+﻿@model Sefer
+
+<div class="card mb-4 mt-3 shadow">
+
+    <div class="card-body">
+        <a class="card-title" asp-controller="Yolculuk" asp-action="Details" asp-route-id="@Model.SeferId" style="text-decoration:none; font-size:24px;">
+        @Model.KalkisSehir <i class="fas fa-long-arrow-alt-right"></i> @Model.VarisSehir</a>
+        <p class="card-text"><b style="font-size:19px;">Güzergah:</b>  @Model.KalkisSehir  > @Model.VarisSehir</p><br />
+
+        <p style=" font-size:24px; text-align:center;">
+            <b>@Model.SeferTarihi </b>
+            - @Model.KalkisZamani
+        </p>
+
+
+    </div>
+    <div class="card-footer text-center">
+        <a asp-controller="Yolculuk" asp-action="Details" asp-route-id="@Model.SeferId" class="btn btn-primary btn-sm">İncele</a>
+
+    </div>
+</div>

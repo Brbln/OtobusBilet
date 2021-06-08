@@ -1,0 +1,32 @@
+﻿@model Entities.Concrete.Sefer
+
+@{
+    ViewData["Title"] = "AddSefer";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<link href="~/lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+<h1>Yeni sefer ekleme sayfası</h1>
+<br />
+@using (Html.BeginForm("AddSefer", "Sefer", FormMethod.Post))
+{
+<div class="form-group; col-md-6">   
+    <br /><br />
+    @Html.Label("Sefer Tarihi")
+    @Html.TextBoxFor(x => x.SeferTarihi, new { @class = "form-control" })
+    <br /><br />
+    @Html.Label("Kalkış Şehri")
+    @Html.TextBoxFor(x => x.KalkisSehir, new { @class = "form-control" })
+    <br /><br />
+    @Html.Label("Varış Şehri")
+    @Html.TextBoxFor(x => x.VarisSehir, new { @class = "form-control" })
+    <br /><br />
+    @Html.Label("Sefer Saati")
+    @Html.TextBoxFor(x => x.KalkisZamani, new { @class = "form-control" })
+    <br /><br />
+    @Html.Label("Sefer Ücreti")
+    @Html.TextBoxFor(x => x.SeferUcreti, new { @class = "form-control" })
+    <br /><br />
+
+    <button>Kaydet</button>
+</div>
+}

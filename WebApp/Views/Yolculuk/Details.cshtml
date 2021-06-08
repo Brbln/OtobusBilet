@@ -1,0 +1,84 @@
+﻿@using Entities.Concrete
+@model Sefer
+
+
+<div class="card mb-3 shadow">
+
+    <div class="card-title pl-3 pt-3">
+        <h1 style="text-align:center">@TempData["nereden"] - @TempData["nereye"]</h1>
+    </div>
+    <div class="card-body">
+        <form action="/yolculuk/details" method="POST" style="display:inline;">
+            <div class="row no-gutters">
+     
+
+                <div class="col-md-12">
+                
+                    <h4 style="text-align:center">@Model.SeferTarihi  -  @Model.KalkisZamani</h4>
+                    <br />
+
+                    <input type="hidden" name="seferId" value="@Model.SeferId" />
+
+                    @if ((@TempData["nereden"].ToString() == @Model.KalkisSehir) && (@TempData["nereye"].ToString() == @Model.VarisSehir))
+                    {
+                        <h1 style="text-align:center; font-size:26px; color:red">@Model.SeferUcreti ₺</h1>
+                        <input type="hidden" name="nereden" value="@TempData["nereden"].ToString()" />
+                        <input type="hidden" name="nereye" value="@TempData["nereye"].ToString()" />
+                     }
+                    <br />
+                    <br />
+                    <br />
+                </div>
+                <div class="row no-gutters">
+
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <input type="text" name="isim" class="form-control" id="" aria-describedby="" placeholder="İsim" required="required" style="width: 500px; margin-left: 40px;">
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <input type="text" name="soyisim" class="form-control" id="" aria-describedby="" placeholder="Soyisim" required="required" style="width: 500px;margin-left: 40px;">
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <input type="text" name="kimlikno" class="form-control" id="" aria-describedby="" placeholder="Kimlik No" required="required" style="width: 500px;margin-left: 40px;">
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <input type="text" name="telno" class="form-control" id="" aria-describedby="" placeholder="Telefon" required="required" style="width: 500px;margin-left: 40px;">
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <input type="email" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="E-Mail" required="required" style="width: 500px; margin-left: 40px;">
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <select name="cinsiyet" class="form-select form-select-lg mb-3" asp-items="@ViewBag.Cinsiyet" required="required" style="width: 500px; height:30px; margin-left: 40px;">
+                                <option selected disabled>Cinsiyet</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <select name="koltukno" class="form-select form-select-lg mb-3" asp-items="@ViewBag.Koltuklar" required="required" style="width: 500px; height:30px; margin-left: 40px;">
+                                <option selected disabled>Koltuk Seçiniz</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-md-8">
+                        <button type="submit" class="btn btn-danger btn-lg" style="color: white;margin-left: 40px;">Bilet Al</button>
+                    </div>
+
+                    <br />
+                </div><br />
+            </div>
+        </form>
+    </div><br />
+
+</div>
+<br />

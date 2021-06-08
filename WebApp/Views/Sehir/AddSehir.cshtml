@@ -1,0 +1,19 @@
+﻿@model Sehir
+
+@{
+    ViewData["Title"] = "AddSehir";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<br />
+<h1>Yeni Şehir Ekleme Sayfası</h1>
+
+@using (Html.BeginForm("AddSehir", "Sehir", FormMethod.Post))
+{
+    <div class="form-group; row-cols-md-6">
+        <br /><br />
+        @Html.Label("Sehir Adı")
+        @Html.TextBoxFor(x => x.SehirAdi, new { @class = "form-control" })
+        <br />
+        <button class="btn btn-info">Kaydet</button>
+    </div>
+}

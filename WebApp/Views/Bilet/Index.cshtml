@@ -1,0 +1,43 @@
+﻿@model List<Bilet>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<br />
+<table class="table table-bordered">
+    <tr>
+        <th>Bilet ID</th>
+        <th>Ad</th>
+        <th>Soyad</th>
+        <th>Cinsiyet</th>
+        <th>Kimlik No</th>
+        <th>Mail</th>
+        <th>Telefon No</th>
+        <th>Nereden</th>
+        <th>Nereye</th>
+        <th>Koltuk No</th>
+        <th>Bilet Fiyatı</th>
+        <th>Sefer ID</th>
+        <th>Sil</th>
+    </tr>
+@foreach (var item in Model)
+{
+<tr>
+    <td>@item.BiletId</td>
+    <td>@item.Ad</td>
+    <td>@item.Soyad</td>
+    <td>@item.Cinsiyet</td>
+    <td>@item.KimlikNo</td>
+    <td>@item.Mail</td>
+    <td>@item.TelNo</td>
+    <td>@item.Nereden</td>
+    <td>@item.Nereye</td>
+    <td>@item.KoltukNo</td>
+    <td>@item.Fiyat</td>
+    <td>@item.SeferId</td>
+    <td><a href="/Bilet/DeleteBilet/@item.BiletId" class="btn btn-danger">Bileti İptal Et</a></td>
+</tr>
+}
+</table>

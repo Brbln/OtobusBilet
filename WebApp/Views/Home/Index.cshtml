@@ -1,0 +1,38 @@
+﻿@model BiletSefer
+
+<header class="mt-5" style="background-color:white">
+    @await Html.PartialAsync("_slider")
+    <br />
+    <br />
+</header>
+
+<body style="background-color:#e9e3e3">
+</body>
+<div class="container shadow" style="margin-bottom: 100px; padding: 10px 14px;background-color:white">
+    <div class="form-group" style="display: inline;">
+        <form action="/home/index" class="form-inline">
+            <select name="nereden" class="form-select form-select-lg mb-3" asp-items="@ViewBag.Sehirler" style="width: 505px; height:53px;">
+                <option selected disabled>Nereden</option>
+            </select>
+            <i class="fas fa-long-arrow-alt-right" style="padding: 0px 20px; font-size: 22px;"></i>
+            <select name="nereye" class="form-select form-select-lg mb-3" asp-items="@ViewBag.Sehirler" style="width: 505px; height:53px;">
+                <option selected disabled>Nereye</option>
+            </select>
+            <button type="submit" class="btn btn-danger btn-lg btn-block">Yolculuk Bul</button>
+        </form>
+    </div>
+
+    @if (Model.Seferler != null)
+    {
+        <div class="row">
+            @foreach (var item in @Model.Seferler)
+            {
+                <div class="col-md-6">
+                    @await Html.PartialAsync("_yolculuk", item)
+                </div>
+            }
+        </div>
+    }
+    <br /><br />
+
+</div>
